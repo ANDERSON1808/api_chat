@@ -1,4 +1,4 @@
-package server
+package config
 
 import (
 	"fmt"
@@ -63,7 +63,7 @@ func (e *APIError) Error() string {
 	return fmt.Sprintf("{\"error\": \"%s\", \"code\": %d}", e.Msg, e.Code)
 }
 
-func isInt(titleorID string) int {
+func IsInt(titleorID string) int {
 	if id, err := strconv.Atoi(titleorID); err == nil {
 		return id
 	}

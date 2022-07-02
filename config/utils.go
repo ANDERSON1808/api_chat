@@ -1,47 +1,41 @@
-package handler
+package config
 
 import (
-	"api_chat/config"
 	"encoding/json"
 	"log"
 	"net/http"
 )
 
-var logger *log.Logger
-
-/* Convenience function for printing to stdout
-func p(a ...interface{}) {
-	fmt.Println(a...)
-}*/
+var Logger *log.Logger
 
 // Info will log information with "INFO" prefix to logger
 func Info(args ...interface{}) {
-	logger.SetPrefix("INFO ")
-	logger.Println(args...)
+	Logger.SetPrefix("INFO ")
+	Logger.Println(args...)
 }
 
 // Danger will log information with "ERROR" prefix to logger
 func Danger(args ...interface{}) {
-	logger.SetPrefix("ERROR ")
-	logger.Println(args...)
+	Logger.SetPrefix("ERROR ")
+	Logger.Println(args...)
 }
 
 // Warning will log information with "WARNING" prefix to logger
 func Warning(args ...interface{}) {
-	logger.SetPrefix("WARNING ")
-	logger.Println(args...)
+	Logger.SetPrefix("WARNING ")
+	Logger.Println(args...)
 }
 
 // ReportStatus is a helper function to return a JSON response indicating outcome success/failure
-func ReportStatus(w http.ResponseWriter, success bool, err *config.APIError) {
-	var res *config.Outcome
+func ReportStatus(w http.ResponseWriter, success bool, err *APIError) {
+	var res *Outcome
 	w.Header().Set("Content-Type", "application/json")
 	if success {
-		res = &config.Outcome{
+		res = &Outcome{
 			Status: success,
 		}
 	} else {
-		res = &config.Outcome{
+		res = &Outcome{
 			Status: success,
 			Error:  err,
 		}

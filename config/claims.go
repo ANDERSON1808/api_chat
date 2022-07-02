@@ -1,7 +1,7 @@
-package models
+package config
 
 import (
-	"api_chat/config"
+	"api_chat/models"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -20,7 +20,7 @@ type Claims struct {
 }
 
 //EncodeJWT will generate a jwt token based
-func EncodeJWT(c *ChatEvent, cr *ChatRoom, secretKey string) (tokenString string, err error) {
+func EncodeJWT(c *models.ChatEvent, cr *models.ChatRoom, secretKey string) (tokenString string, err error) {
 	// Declare the expiration time of the token
 	expirationTime := time.Now().Add(time.Duration(expirationConstantMinutes) * time.Minute)
 	// Create the JWT claims, which includes the username and expiry time
@@ -53,26 +53,26 @@ func ParseJWT(tokenString string, c *Claims, secretKey string) (err error) {
 	switch err {
 	// TODO: What are some other useful cases?
 	case jwt.ErrSignatureInvalid:
-		err = &config.APIError{
+		err = &APIError{
 			Code:  401,
 			Field: "signature",
 		}
 	case nil:
 		// Check signing algorithm is as expected:
 		if _, ok := tkn.Method.(*jwt.SigningMethodHMAC); !ok {
-			return &config.APIError{
+			return &APIError{
 				Code:  402,
 				Field: "signing method",
 			}
 		}
 		if !tkn.Valid {
-			return &config.APIError{
+			return &APIError{
 				Code:  403,
 				Field: "token",
 			}
 		}
 	default:
-		err = &config.APIError{
+		err = &APIError{
 			Code:  403,
 			Field: "token",
 		}
@@ -85,7 +85,7 @@ func ParseJWT(tokenString string, c *Claims, secretKey string) (err error) {
 func (c Claims) RefreshJWT(secretKey string) (tokenString string, err error) {
 	// Ensure enough time has elapsed since last token was generated
 	if time.Until(time.Unix(c.ExpiresAt, 0)) > time.Duration(minimumRefreshDurationAllowedMinutes)*time.Minute {
-		return "", &config.APIError{
+		return "", &APIError{
 			Code:  403,
 			Field: "token",
 		}

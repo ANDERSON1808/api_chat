@@ -1,7 +1,6 @@
-package engine
+package models
 
 import (
-	"api_chat/models"
 	"log"
 	"time"
 )
@@ -13,16 +12,16 @@ const patience time.Duration = time.Second * 1
 // Broker maintains the client connections and handles events using a listener goroutine
 type Broker struct {
 	// Registered Clients.
-	Clients map[*models.Client]bool
+	Clients map[*Client]bool
 
 	// Inbound messages from the Clients.
 	Notification chan []byte
 
 	// Register requests from the Clients.
-	OpenClient chan *models.Client
+	OpenClient chan *Client
 
 	// Unregister requests from Clients.
-	CloseClient chan *models.Client
+	CloseClient chan *Client
 
 	RoomID int
 }
@@ -30,9 +29,9 @@ type Broker struct {
 func NewBroker(ID int) *Broker {
 	return &Broker{
 		Notification: make(chan []byte),
-		OpenClient:   make(chan *models.Client),
-		CloseClient:  make(chan *models.Client),
-		Clients:      make(map[*models.Client]bool),
+		OpenClient:   make(chan *Client),
+		CloseClient:  make(chan *Client),
+		Clients:      make(map[*Client]bool),
 		RoomID:       ID,
 	}
 }

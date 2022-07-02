@@ -1,0 +1,27 @@
+ERROR 2022/06/29 13:59:42 utils.go:30: Error parsing token request &{POST /chats/1/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000748c0} 0x6ca460 47 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0000fc780}
+ERROR 2022/06/29 13:59:42 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000074a00} 0x6ca460 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0000fcdb0}
+INFO 2022/06/29 13:59:42 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000074a00} 0x6ca460 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0000fcdb0} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 13:59:42 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 13:59:42 utils.go:24: Not found request: 
+ERROR 2022/06/29 13:59:42 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000074b60} 0x6ca460 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0000fd200}
+INFO 2022/06/29 13:59:42 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000074b60} 0x6ca460 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0000fd200} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 13:59:42 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 13:59:42 utils.go:24: Not found request: 
+ERROR 2022/06/29 14:44:03 utils.go:30: Error parsing token request &{POST /chats/1/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000ce5e0} 0x65d860 47 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc00012e1b0}
+ERROR 2022/06/29 14:44:03 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000ce720} 0x65d860 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc00012e7e0}
+INFO 2022/06/29 14:44:03 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000ce720} 0x65d860 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc00012e7e0} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 14:44:03 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 14:44:03 utils.go:24: Not found request: 
+ERROR 2022/06/29 14:44:03 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000ce880} 0x65d860 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc00012ec30}
+INFO 2022/06/29 14:44:03 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000ce880} 0x65d860 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc00012ec30} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 14:44:03 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 14:44:03 utils.go:24: Not found request: 
+ERROR 2022/06/29 14:44:11 utils.go:30: Error parsing token request &{POST /chats/1/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000066600} 0x65d860 47 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0001781b0}
+ERROR 2022/06/29 14:44:11 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000066740} 0x65d860 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0001787e0}
+INFO 2022/06/29 14:44:11 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc000066740} 0x65d860 60 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc0001787e0} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 14:44:11 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 14:44:11 utils.go:24: Not found request: 
+ERROR 2022/06/29 14:44:11 utils.go:30: Error parsing token request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000668a0} 0x65d860 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc000178c30}
+INFO 2022/06/29 14:44:11 utils.go:24: erroneous chats API request &{POST /chats/2/token HTTP/1.1 1 1 map[Content-Type:[application/json]] {0xc0000668a0} 0x65d860 59 [] false  map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc000178c30} {"error": "Room error: Room not found", "code": 101, "field": "2"}
+WARNING 2022/06/29 14:44:11 utils.go:36: API error: {"error": "Room error: Room not found", "code": 101, "field": "2"}
+INFO 2022/06/29 14:44:11 utils.go:24: Not found request: 

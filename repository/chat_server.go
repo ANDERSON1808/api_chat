@@ -1,8 +1,8 @@
-package server
+package repository
 
 import (
 	"api_chat/config"
-	"api_chat/engine"
+	"api_chat/features"
 	"api_chat/models"
 	"strconv"
 	"strings"
@@ -37,7 +37,7 @@ func (cs ChatServer) Init() {
 		CreatedAt:   time.Now(),
 		UpdatedAt:   time.Now(),
 		ID:          1,
-		Broker:      engine.NewBroker(1),
+		Broker:      models.NewBroker(1),
 		Clients:     make(map[string]*models.Client),
 	})
 }
@@ -49,7 +49,7 @@ func (cs ChatServer) push(cr *models.ChatRoom) {
 	cr.ID = *cs.Index
 	cr.Clients = make(map[string]*models.Client)
 	cr.Type = strings.ToLower(cr.Type)
-	cr.Broker = engine.NewBroker(cr.ID)
+	cr.Broker = models.NewBroker(cr.ID)
 	// Start broker for rooms
 	go cr.Broker.Listen()
 	// Push to chat server
@@ -119,8 +119,8 @@ func (cs ChatServer) roomExists(titleorID string) bool {
 // Add will create a new chat room and add it to the server
 func (cs ChatServer) Add(cr *models.ChatRoom) (err error) {
 	// validate chat room request
-	if apierr, valid := cr.IsValid(); !valid {
-		return apierr
+	if rapier, valid := features.IsValid(*cr); !valid {
+		return rapier
 	}
 	if cs.roomExists(cr.Title) { // TODO: What if the room is hidden? Return unspecified error or inform user?
 		return &config.APIError{
@@ -157,7 +157,7 @@ func (cs ChatServer) Update(titleOrID string, modifiedChatRoom *models.ChatRoom)
 	}
 	// Update password for validation
 	modifiedChatRoom.Password = currentChatRoom.Password
-	if apierr, valid := modifiedChatRoom.IsValid(); !valid {
+	if apierr, valid := features.IsValid(*modifiedChatRoom); !valid {
 		return apierr
 	}
 	// Update chat room
